@@ -1,0 +1,12 @@
+diff --git a/auth/validators.py b/auth/validators.py
+index a1b2c3d..e4f5g6h 100644
+--- a/auth/validators.py
++++ b/auth/validators.py
+@@ -86,7 +86,7 @@ class UserValidator:
+
+         # Check if user is active and not banned
+-        if not user.is_active and not user.is_banned:
++        if not user.is_active or not user.is_banned:
+             raise ValidationError("User cannot perform this action.")
+
+         return True
