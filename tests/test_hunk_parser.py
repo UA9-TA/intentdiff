@@ -1,7 +1,7 @@
-import pytest
 from pathlib import Path
 
 from intentdiff.hunk_parser import parse_diff
+
 
 def test_parse_logic_operator_change():
     patch_path = Path("tests/fixtures/logic_operator_change.patch")
@@ -15,6 +15,7 @@ def test_parse_logic_operator_change():
     assert hunk.file == "auth/validators.py"
     assert "if not user.is_active and not user.is_banned:" in hunk.before_lines
     assert "if not user.is_active or not user.is_banned:" in hunk.after_lines
+
 
 def test_parse_boundary_condition_change():
     patch_path = Path("tests/fixtures/boundary_condition_change.patch")

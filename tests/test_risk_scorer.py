@@ -1,6 +1,5 @@
-import pytest
+from intentdiff.risk_scorer import filter_changes_by_risk, get_severity
 
-from intentdiff.risk_scorer import get_severity, filter_changes_by_risk
 
 def test_get_severity():
     assert get_severity("logic_operator") == "critical"
@@ -8,11 +7,12 @@ def test_get_severity():
     assert get_severity("default_parameter") == "low"
     assert get_severity("unknown_type") == "medium"
 
+
 def test_filter_changes_by_risk():
     changes = [
         {"type": "logic_operator", "severity": "critical", "file": "a.py"},
         {"type": "boundary_condition", "severity": "medium", "file": "b.py"},
-        {"type": "default_parameter", "severity": "low", "file": "c.py"}
+        {"type": "default_parameter", "severity": "low", "file": "c.py"},
     ]
 
     # Low risk filters none
