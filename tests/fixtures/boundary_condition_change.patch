@@ -1,0 +1,13 @@
+diff --git a/payment/processor.py b/payment/processor.py
+index x1y2z3a..b4c5d6e 100644
+--- a/payment/processor.py
++++ b/payment/processor.py
+@@ -131,7 +131,7 @@ def process_transaction(amount: float, user_id: str):
+
+     MAX_SINGLE_TXN = 10000.0
+
+-    if amount <= MAX_SINGLE_TXN:
++    if amount < MAX_SINGLE_TXN:
+         # Standard processing path
+         return _standard_process(amount, user_id)
+     else:

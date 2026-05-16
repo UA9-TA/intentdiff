@@ -1,0 +1,11 @@
+diff --git a/payment/processor.py b/payment/processor.py
+index x1y2z3a..b4c5d6e 100644
+--- a/payment/processor.py
++++ b/payment/processor.py
+@@ -198,7 +198,7 @@ def fetch_exchange_rate(currency: str):
+         response = http_client.get(f"/rates/{currency}")
+         return response.json()["rate"]
+-    except (ValueError, TypeError) as e:
++    except Exception as e:
+         logger.error(f"Failed to parse rate for {currency}: {e}")
+         return 1.0  # Fallback

@@ -1,0 +1,15 @@
+diff --git a/utils/formatting.py b/utils/formatting.py
+index p1q2r3s..t4u5v6w 100644
+--- a/utils/formatting.py
++++ b/utils/formatting.py
+@@ -42,8 +42,9 @@ def format_user_name(first_name: str, last_name: str) -> str:
+     if not first_name and not last_name:
+         return "Anonymous"
+
+-    full_name = f"{first_name} {last_name}".strip()
+-    return full_name
++    # Refactored for clarity
++    formatted_name = f"{first_name} {last_name}".strip()
++    return formatted_name
+
+ def format_address(street, city, state, zip):
